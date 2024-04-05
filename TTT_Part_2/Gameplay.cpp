@@ -4,14 +4,16 @@
 
 using namespace std;
 
-Gameplay::Gameplay() {
+Gameplay::Gameplay(player* player_1, player* player_2) {
+	this->player_1 = player_1;
+	this->player_2 = player_2;
+	(*player_1).set_board(&board);
+	(*player_2).set_board(&board);
 	return;
 }
 
-void Gameplay::gameRun(player *player_1, player *player_2) {
+void Gameplay::gameRun() {
 	bool win = false;
-	(*player_1).set_board(&board);
-	(*player_2).set_board(&board);
 
 	for (int i = 0; i < 9; i++) {
 		if (i % 2 == 0) {
@@ -72,4 +74,10 @@ bool Gameplay::playerWin() {
 		cout << "Player " << winner << " Wins!" << endl;
 	}
 	return win;
+}
+
+void Gameplay::board_clear() {
+	for (int i = 1; i < 10; i++) {
+		board.setCell(i, i + 48);
+	}
 }

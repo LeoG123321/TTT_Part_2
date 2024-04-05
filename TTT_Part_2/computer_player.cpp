@@ -18,7 +18,7 @@ generate_new_number:
 	num = generate_num(engine); //Generates number with seed and range
 
 	if ((*board).getCell(num) != 'X' && (*board).getCell(num) != 'O') {
-		cout << num << endl;
+		cout << endl << num << endl;
 		(*board).setCell(num, letter);
 		cout << "Player " << letter << " has made their move." << endl << endl;
 	}
