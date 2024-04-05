@@ -45,25 +45,24 @@ main_menu_input_retry:
 		goto main_menu_input_retry;
 	}
 
-	char play_again_input = 'y';
+	char play_again_input;
 	string clear_for_input;
 
-	cout << "Would you like to play Again? y/n" << endl;
-	cin >> play_again_input;
-	if (play_again_input == 'y') {
-		(*game_ptr).board_clear();
-		(*game_ptr).gameRun();
-	}
-		
-		/*
-			while (play_again_input == 'y')
-			cout << "Would you like to play Again? y/n" << endl;
-			getline(cin, clear_for_input); //clearing input
-			if (play_again_input == 'y') {
-				(*game_ptr).board_clear();
-				(*game_ptr).gameRun();
-			}
-		*/
-		return 0;
+	do {
+		cout << "Would you like to play Again? y/n" << endl;
+		cin >> play_again_input;
+		if (play_again_input == 'y') {
+			(*game_ptr).board_clear();
+			(*game_ptr).gameRun();
+		}
+		else if (play_again_input != 'n') {
+			cout << "Error: Input is not Valid." << endl << endl;
+			play_again_input = 'y';
+		}
+		else {
+			cout << "Goodbye! Have a nice day! :)" << endl;
+		}
+	} while (play_again_input == 'y');
 	
+		return 0;
 }
