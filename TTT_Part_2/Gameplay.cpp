@@ -1,4 +1,5 @@
 #include "Gameplay.h"
+
 #include <iostream>
 
 using namespace std;
@@ -7,14 +8,14 @@ Gameplay::Gameplay() {
 	return;
 }
 
-void Gameplay::gameRun() {
+void Gameplay::gameRun(player player_1, player player_2) {
 	bool win = false;
 	board.displayBoard();
 	for (int i = 0; i < 9; i++) {
 		if (i % 2 == 0)
-			playerInput('X');
+			player_1.move();
 		else
-			playerInput('O');
+			player_2.move();
 		win = playerWin();
 		if (win)
 			return;
