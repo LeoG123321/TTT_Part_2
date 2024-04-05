@@ -1,14 +1,13 @@
 #include "human_player.h"
 #include <iostream>
 
-human_player::human_player(char letter, Board* board) {
+human_player::human_player(char letter) {
 	this->letter = letter;
-	this->board = board;
 }
 
 void human_player::move() {
 	int num;
-
+	(*board).displayBoard();
 tryAgain:
 
 	cout << "Player " << letter << ":" << endl;
@@ -31,4 +30,8 @@ tryAgain:
 			cout << "Error, Location Input Less Than '1'. Try Again\n" << endl;
 		goto tryAgain;
 	}
+}
+
+void human_player::set_board(Board* board) {
+	this->board = board;
 }

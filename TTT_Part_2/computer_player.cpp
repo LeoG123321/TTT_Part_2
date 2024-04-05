@@ -3,8 +3,7 @@
 #include <random>	//Random Engine
 #include <ctime>	//Seed for Engine
 
-computer_player::computer_player(char letter, Board* board) {
-	this->board = board;
+computer_player::computer_player(char letter) {
 	this->letter = letter;
 }
 
@@ -19,10 +18,16 @@ generate_new_number:
 	num = generate_num(engine); //Generates number with seed and range
 
 	if ((*board).getCell(num) != 'X' && (*board).getCell(num) != 'O') {
+		cout << num << endl;
 		(*board).setCell(num, letter);
+		cout << "Player " << letter << " has made their move." << endl << endl;
 	}
 	else {
 		goto generate_new_number;
 	}
 
+}
+
+void computer_player::set_board(Board* board) {
+	this->board = board;
 }

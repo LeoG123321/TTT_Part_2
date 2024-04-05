@@ -8,49 +8,26 @@ Gameplay::Gameplay() {
 	return;
 }
 
-void Gameplay::gameRun(player player_1, player player_2) {
+void Gameplay::gameRun(player *player_1, player *player_2) {
 	bool win = false;
-	board.displayBoard();
+	(*player_1).set_board(&board);
+	(*player_2).set_board(&board);
+
 	for (int i = 0; i < 9; i++) {
-		if (i % 2 == 0)
-			player_1.move();
-		else
-			player_2.move();
+		if (i % 2 == 0) {
+			(*player_1).move();
+		}
+		else {
+			(*player_2).move();
+		}
 		win = playerWin();
 		if (win)
 			return;
 	}
-	if (!win)
+	if (!win) {
+		board.displayBoard();
 		cout << "Game Over: Draw" << endl;
-}
-
-void Gameplay::playerInput(char input) {
-	int num;
-
-tryAgain:
-
-	cout << "Player " << input << ":" << endl;
-	cout << "Choose Your Location" << endl;
-	cin >> num;
-
-	if (num > 0 && num < 10) {
-		if (board.getCell(num) != 'X' && board.getCell(num) != 'O') {
-			board.setCell(num, input);
-		}
-		else {
-			cout << "Error, Location Already Taken. Try Again\n" << endl;
-			goto tryAgain;
-		}
 	}
-	else {
-		if (num > 9)
-			cout << "Error, Location Input Greater Than '9'. Try Again\n" << endl;
-		else
-			cout << "Error, Location Input Less Than '1'. Try Again\n" << endl;
-		goto tryAgain;
-	}
-
-	board.displayBoard();
 }
 
 bool Gameplay::playerWin() {
@@ -90,7 +67,9 @@ bool Gameplay::playerWin() {
 		winner = board.getCell(3);
 	}
 
-	if (win == true)
+	if (win == true) {
+		board.displayBoard();
 		cout << "Player " << winner << " Wins!" << endl;
+	}
 	return win;
 }

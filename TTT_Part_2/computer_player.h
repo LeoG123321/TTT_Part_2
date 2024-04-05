@@ -7,7 +7,8 @@ private:
 	char letter;
 	Board* board;
 public:
-	computer_player(char letter, Board* board);
-	void move();
+	computer_player(char letter);
+	void move() override;
+	void set_board(Board* board) override;
 };
 
