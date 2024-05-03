@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
+#include <vector>
 using namespace std;
 class Board
 {
 private:
-	char cells[10];
-
+	vector<vector<char>> board;
 public:
 	Board();
 
