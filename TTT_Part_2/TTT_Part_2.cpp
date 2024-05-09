@@ -71,6 +71,8 @@ main_menu_input_retry:
 	Board board(3);
 	board.setCell(2, 2, 'X');
 	board.setCell(0, 0, 'X');
+	board.setCell(1, 0, 'O');
+	board.setCell(1, 2, 'W');
 	board.displayBoard();
 
 	/*

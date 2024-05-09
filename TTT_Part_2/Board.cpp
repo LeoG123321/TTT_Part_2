@@ -23,11 +23,11 @@ void Board::displayBoard() {
 	for (int i = 0; i < board.size(); i++) {
 		for (int j = 0; j < board.size() - 1; j++) {
 			layer += " ";
-			layer += board[i][j];
+			layer += board[j][i];
 			layer += " |";
 		}
 		layer += " ";
-		layer += board[i][board.size() - 1];
+		layer += board[board.size() - 1][i];
 		layer += " ";
 		multi_layer.push_back(layer);
 		layer = "";
