@@ -1,5 +1,4 @@
 #include "Gameplay.h"
-/*
 #include <iostream>
 
 using namespace std;
@@ -33,46 +32,52 @@ void Gameplay::gameRun() {
 }
 
 bool Gameplay::playerWin() {
-	char winner;
 	bool win = false;
+	bool equal = true;
 
-	if (board.getCell(1) == board.getCell(2) && board.getCell(2) == board.getCell(3)) {
-		win = true;
-		winner = board.getCell(1);
-	}
-	else if (board.getCell(4) == board.getCell(5) && board.getCell(5) == board.getCell(6)) {
-		win = true;
-		winner = board.getCell(4);
-	}
-	else if (board.getCell(7) == board.getCell(8) && board.getCell(8) == board.getCell(9)) {
-		win = true;
-		winner = board.getCell(7);
-	}
-	else if (board.getCell(1) == board.getCell(5) && board.getCell(5) == board.getCell(9)) {
-		win = true;
-		winner = board.getCell(1);
-	}
-	else if (board.getCell(3) == board.getCell(5) && board.getCell(5) == board.getCell(7)) {
-		win = true;
-		winner = board.getCell(3);
-	}
-	else if (board.getCell(1) == board.getCell(4) && board.getCell(4) == board.getCell(7)) {
-		win = true;
-		winner = board.getCell(1);
-	}
-	else if (board.getCell(2) == board.getCell(5) && board.getCell(5) == board.getCell(8)) {
-		win = true;
-		winner = board.getCell(2);
-	}
-	else if (board.getCell(3) == board.getCell(6) && board.getCell(6) == board.getCell(9)) {
-		win = true;
-		winner = board.getCell(3);
+	vector<vector<char>> x_columns;
+	vector<vector<char>> y_rows;
+	vector<char> column;
+	vector<char> row;
+	vector<char> empty;
+
+	for (int i = 0; i < board.get_size(); i++) {
+		for (int j = 0; j < board.get_size(); j++) {
+			column.push_back(board.getCell(i, j));
+			row.push_back(board.getCell(j, i));
+		}
+		x_columns.push_back(column);
+		column = empty;
+		y_rows.push_back(row);
+		row = empty;
 	}
 
-	if (win == true) {
-		board.displayBoard();
-		cout << "Player " << winner << " Wins!" << endl;
+	for (int i = 0; i < board.get_size(); i++) {
+		for (int j = 0; j < board.get_size() - 1; j++) {
+			if (x_columns[i][j] != x_columns[i][j + 1]) {
+				equal = false;
+			}
+		}
+		if (!equal) {
+			equal = true;
+		}
+		else {
+			win = true;
+		}
+
+		for (int j = 0; j < board.get_size() - 1; j++) {
+			if (y_rows[i][j] != y_rows[i][j + 1]) {
+				equal = false;
+			}
+		}
+		if (!equal) {
+			equal = true;
+		}
+		else {
+			win = true;
+		}
 	}
+
 	return win;
 }
 
@@ -81,4 +86,3 @@ void Gameplay::board_clear() {
 		board.setCell(i, i + 48);
 	}
 }
-*/

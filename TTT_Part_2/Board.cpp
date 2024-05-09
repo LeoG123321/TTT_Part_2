@@ -12,6 +12,8 @@ Board::Board(int size) {
 	for (int i = 0; i < size; i++) {
 		board.push_back(temp);
 	}
+
+	board_size = size;
 }
 
 void Board::displayBoard() {
@@ -82,6 +84,10 @@ char Board::getCell(int x_coordinate, int y_coordinate) {
 
 void Board::setCell(int x_coordinate, int y_coordinate, char character) {
 	board[x_coordinate][y_coordinate] = character;
+}
+
+int Board::get_size() {
+	return board.size();
 }
 
 
