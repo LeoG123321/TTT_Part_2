@@ -75,6 +75,12 @@ main_menu_input_retry:
 	board.setCell(1, 2, 'W');
 	board.displayBoard();
 
+	cout << "At 2,2 = " << board.getCell(2, 2) << endl;
+	cout << "At 0,0 = " << board.getCell(0, 0) << endl;
+	cout << "At 1,0 = " << board.getCell(1, 0) << endl;
+	cout << "At 1,2 = " << board.getCell(1, 2) << endl;
+
+
 	/*
 	Board board2(5);
 	board2.displayBoard();
