@@ -82,7 +82,6 @@ bool Gameplay::playerWin() {
 }
 
 void Gameplay::board_clear() {
-	for (int i = 1; i < 10; i++) {
-		board.setCell(i, i + 48);
-	}
+	Board new_board(board.get_size());
+	board = new_board;
 }
