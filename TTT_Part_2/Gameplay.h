@@ -6,11 +6,11 @@
 class Gameplay
 {
 private:
-	Board board;
+	Board* board;
 	player* player_1;
 	player* player_2;
 public:
-	Gameplay(player* player_1, player* player_2);
+	Gameplay(player* player_1, player* player_2, int size);
 
 	void gameRun();
 	bool playerWin();

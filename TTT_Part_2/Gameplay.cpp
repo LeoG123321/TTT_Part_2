@@ -3,18 +3,22 @@
 
 using namespace std;
 
-Gameplay::Gameplay(player* player_1, player* player_2) {
+Gameplay::Gameplay(player* player_1, player* player_2, int size) {
+	Board build_board(size);
+	(*board) = build_board;
 	this->player_1 = player_1;
 	this->player_2 = player_2;
-	(*player_1).set_board(&board);
-	(*player_2).set_board(&board);
+	(*player_1).set_board(board);
+	(*player_2).set_board(board);
 	return;
 }
 
 void Gameplay::gameRun() {
 	bool win = false;
+	player* current_player;
 
-	for (int i = 0; i < 9; i++) {
+	//Game loops through until all spots on the board are full
+	for (int i = 0; i < ((*board).get_size() * (*board).get_size()); i++) {
 		if (i % 2 == 0) {
 			(*player_1).move();
 		}
@@ -22,11 +26,20 @@ void Gameplay::gameRun() {
 			(*player_2).move();
 		}
 		win = playerWin();
-		if (win)
+		if (win) {
+			(*board).displayBoard();
+			if (i % 2 == 0) {
+				current_player = player_1;
+			}
+			else {
+				current_player = player_2;
+			}
+			cout << "Player " << (*player_1).get_letter() << " Wins!" << endl;
 			return;
+		}
 	}
 	if (!win) {
-		board.displayBoard();
+		(*board).displayBoard();
 		cout << "Game Over: Draw" << endl;
 	}
 }
@@ -41,10 +54,10 @@ bool Gameplay::playerWin() {
 	vector<char> row;
 	vector<char> empty;
 
-	for (int i = 0; i < board.get_size(); i++) {
-		for (int j = 0; j < board.get_size(); j++) {
-			column.push_back(board.getCell(i, j));
-			row.push_back(board.getCell(j, i));
+	for (int i = 0; i < (*board).get_size(); i++) {
+		for (int j = 0; j < (*board).get_size(); j++) {
+			column.push_back((*board).getCell(i, j));
+			row.push_back((*board).getCell(j, i));
 		}
 		x_columns.push_back(column);
 		column = empty;
@@ -52,8 +65,8 @@ bool Gameplay::playerWin() {
 		row = empty;
 	}
 
-	for (int i = 0; i < board.get_size(); i++) {
-		for (int j = 0; j < board.get_size() - 1; j++) {
+	for (int i = 0; i < (*board).get_size(); i++) {
+		for (int j = 0; j < (*board).get_size() - 1; j++) {
 			if (x_columns[i][j] != x_columns[i][j + 1]) {
 				equal = false;
 			}
@@ -65,7 +78,7 @@ bool Gameplay::playerWin() {
 			win = true;
 		}
 
-		for (int j = 0; j < board.get_size() - 1; j++) {
+		for (int j = 0; j < (*board).get_size() - 1; j++) {
 			if (y_rows[i][j] != y_rows[i][j + 1]) {
 				equal = false;
 			}
@@ -82,6 +95,6 @@ bool Gameplay::playerWin() {
 }
 
 void Gameplay::board_clear() {
-	Board new_board(board.get_size());
-	board = new_board;
+	Board new_board((*board).get_size());
+	(*board) = new_board;
 }

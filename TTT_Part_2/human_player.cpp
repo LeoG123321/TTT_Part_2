@@ -1,6 +1,6 @@
 #include "human_player.h"
 #include <iostream>
-/*
+
 human_player::human_player(char letter) {
 	this->letter = letter;
 }
@@ -35,4 +35,7 @@ tryAgain:
 void human_player::set_board(Board* board) {
 	this->board = board;
 }
-*/
+
+char human_player::get_letter() {
+	return letter;
+}
