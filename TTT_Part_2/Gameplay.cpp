@@ -34,7 +34,7 @@ void Gameplay::gameRun() {
 			else {
 				current_player = player_2;
 			}
-			cout << "Player " << (*player_1).get_letter() << " Wins!" << endl;
+			cout << "Player " << (*current_player).get_letter() << " Wins!" << endl;
 			return;
 		}
 	}

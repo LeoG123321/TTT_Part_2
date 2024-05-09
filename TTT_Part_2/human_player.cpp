@@ -6,28 +6,33 @@ human_player::human_player(char letter) {
 }
 
 void human_player::move() {
-	int num;
+	int x_coordinate;
+	int y_coordinate;
 	(*board).displayBoard();
 tryAgain:
 
 	cout << "Player " << letter << ":" << endl;
-	cout << "Choose Your Location" << endl;
-	cin >> num;
-
-	if (num > 0 && num < 10) {
-		if ((*board).getCell(num) != 'X' && (*board).getCell(num) != 'O') {
-			(*board).setCell(num, letter);
+	cout << "Choose X_Coordinate:" << endl;
+	cin >> x_coordinate;
+	cout << "Choose Y_Coordinate:" << endl;
+	cin >> y_coordinate;
+	if (x_coordinate >= 0 && x_coordinate < board->get_size()) {
+		if (y_coordinate >= 0 && y_coordinate < board->get_size()) {
+			if ((*board).getCell(x_coordinate, y_coordinate) == '_') {
+				(*board).setCell(x_coordinate, y_coordinate, letter);
+			}
+			else {
+				cout << "Error, Location Already Taken. Try Again\n" << endl;
+				goto tryAgain;
+			}
 		}
 		else {
-			cout << "Error, Location Already Taken. Try Again\n" << endl;
+			cout << "Error, Input Out of Range. Try Again\n" << endl;
 			goto tryAgain;
 		}
 	}
 	else {
-		if (num > 9)
-			cout << "Error, Location Input Greater Than '9'. Try Again\n" << endl;
-		else
-			cout << "Error, Location Input Less Than '1'. Try Again\n" << endl;
+		cout << "Error, Input Out of Range. Try Again\n" << endl;
 		goto tryAgain;
 	}
 }

@@ -8,9 +8,9 @@ private:
 	Board* board;
 public:
 	human_player(char letter);
+
 	void move() override;
 	void set_board(Board* board) override;
-
 	char get_letter() override;
 };
 
