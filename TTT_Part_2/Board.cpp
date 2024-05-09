@@ -18,7 +18,7 @@ void Board::displayBoard() {
 	vector<string> multi_layer;
 	string layer = "";
 	string split = "";
-	for (int i = 0; i < board.size() - 1; i++) {
+	for (int i = 0; i < board.size(); i++) {
 		for (int j = 0; j < board.size() - 1; j++) {
 			layer += " ";
 			layer += board[j][i];
@@ -28,13 +28,16 @@ void Board::displayBoard() {
 		layer += " _ ";
 		multi_layer.push_back(layer);
 		layer = "";
+	}
+
+	for (int i = 0; i < board.size() - 1; i++) {
 		split += "---+";
 	}
 	split += "---";
 
 	cout << "\t      X" << endl;
 	cout << "\t  ";
-	for (int i = 0; i < board.size() - 1; i++) {
+	for (int i = 0; i < board.size(); i++) {
 		cout << i << "   ";
 	}
 	cout << endl << endl;
@@ -52,10 +55,11 @@ void Board::displayBoard() {
 
 			cout << "   " << y_counter << "\t ";
 			cout << multi_layer[y_counter] << endl;
+			y_counter++;
 		}
 		if (i % 2 == 1) {
 			
-			cout << "\t\t" << split << endl;
+			cout << "\t " << split << endl;
 		}
 	}
 	cout << endl << endl;
