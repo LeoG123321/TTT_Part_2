@@ -5,11 +5,11 @@
 Board::Board() {
 	vector<char> temp;
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 10; i++) {
 		temp.push_back('_');
 	}
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 10; i++) {
 		board.push_back(temp);
 	}
 }
