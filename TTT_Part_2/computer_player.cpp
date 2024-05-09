@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random>	//Random Engine
 #include <ctime>	//Seed for Engine
-
+/*
 computer_player::computer_player(char letter) {
 	this->letter = letter;
 }
@@ -31,3 +31,4 @@ generate_new_number:
 void computer_player::set_board(Board* board) {
 	this->board = board;
 }
+*/

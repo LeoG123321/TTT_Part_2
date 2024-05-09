@@ -1,5 +1,5 @@
 #include "Gameplay.h"
-
+/*
 #include <iostream>
 
 using namespace std;
@@ -81,3 +81,4 @@ void Gameplay::board_clear() {
 		board.setCell(i, i + 48);
 	}
 }
+*/

@@ -1,13 +1,15 @@
-#include "Gameplay.h"  
-#include "computer_player.h"
-#include "human_player.h"
+//#include "Gameplay.h"  
+//#include "computer_player.h"
+//#include "human_player.h"
 #include <iomanip>
 #include <iostream>
+#include "Board.h"
 
 using namespace std;
 
 int main()
 {
+	/*
 	int main_menu_input;
 
 	Gameplay* game_ptr;
@@ -63,6 +65,12 @@ main_menu_input_retry:
 			cout << "Goodbye! Have a nice day! :)" << endl;
 		}
 	} while (play_again_input == 'y');
-	
+	*/
+
+	// Testing Board
+	Board board;
+	board.displayBoard();
+
+
 		return 0;
 }

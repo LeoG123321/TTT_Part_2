@@ -15,36 +15,59 @@ Board::Board() {
 }
 
 void Board::displayBoard() {
+	vector<string> multi_layer;
 	string layer = "";
 	string split = "";
 	for (int i = 0; i < board.size() - 1; i++) {
-		layer += " _ |";
+		for (int j = 0; j < board.size() - 1; j++) {
+			layer += " ";
+			layer += board[j][i];
+			layer += " |";
+			//layer += " _ |";
+		}
+		layer += " _ ";
+		multi_layer.push_back(layer);
+		layer = "";
 		split += "---+";
 	}
-	layer += " _ ";
 	split += "---";
 
-	cout << "\t\t\t X" << endl;
-	cout << "\t\t ";
+	cout << "\t      X" << endl;
+	cout << "\t  ";
 	for (int i = 0; i < board.size() - 1; i++) {
 		cout << i << "   ";
 	}
 	cout << endl << endl;
 
+	int y_counter = 0;
 	for (int i = 0; i < (board.size() * 2) - 1 ; i++) {
-		if 
+		if (i % 2 == 0) {
+			
+			if (i == 2) {
+				cout << "Y";
+			}
+			else {
+				cout << " ";
+			}
+
+			cout << "   " << y_counter << "\t ";
+			cout << multi_layer[y_counter] << endl;
+		}
+		if (i % 2 == 1) {
+			
+			cout << "\t\t" << split << endl;
+		}
 	}
+	cout << endl << endl;
 
 }
-// for (i = 0; i < sqrt(board.size()); i++){
-//	*text stuff*
-//		for (j = 0
-char Board::getCell(int cell) {
-	return cells[cell];
+
+char Board::getCell(int x_coordinate, int y_coordinate) {
+	return board[x_coordinate][y_coordinate];
 }
 
-void Board::setCell(int cell, char num) {
-	cells[cell] = num;
+void Board::setCell(int x_coordinate, int y_coordinate, char character) {
+	board[x_coordinate][y_coordinate] = character;
 }
 
 

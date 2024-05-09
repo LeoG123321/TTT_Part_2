@@ -11,7 +11,7 @@ public:
 
 	void displayBoard();
 
-	char getCell(int);
-	void setCell(int, char);
+	char getCell(int x_coordinate, int y_coordinate);
+	void setCell(int x_coordinate, int y_coordinate, char character);
 };
 
