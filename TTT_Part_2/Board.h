@@ -7,7 +7,7 @@ class Board
 private:
 	vector<vector<char>> board;
 public:
-	Board();
+	Board(int size);
 
 	void displayBoard();
 

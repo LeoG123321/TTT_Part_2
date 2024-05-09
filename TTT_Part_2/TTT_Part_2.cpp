@@ -68,9 +68,14 @@ main_menu_input_retry:
 	*/
 
 	// Testing Board
-	Board board;
+	Board board(3);
 	board.displayBoard();
 
+	Board board2(5);
+	board2.displayBoard();
+
+	Board board3(10);
+	board3.displayBoard();
 
 		return 0;
 }
