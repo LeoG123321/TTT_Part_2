@@ -69,13 +69,19 @@ main_menu_input_retry:
 
 	// Testing Board
 	Board board(3);
+	board.setCell(2, 2, 'X');
+	board.setCell(0, 0, 'X');
 	board.displayBoard();
 
+	/*
 	Board board2(5);
 	board2.displayBoard();
 
+	
 	Board board3(10);
+	board3.setCell(9, 9, 'O');
+	board3.setCell(0, 0, 'X');
 	board3.displayBoard();
-
+	*/
 		return 0;
 }
