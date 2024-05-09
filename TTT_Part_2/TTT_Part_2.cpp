@@ -40,6 +40,8 @@ main_menu_input_retry:
 				player* player_1_ptr = &player_1;
 				human_player player_2('O');
 				player* player_2_ptr = &player_2;
+
+				cout << "things are okay" << endl;
 				Gameplay game(player_1_ptr, player_2_ptr, size_input);
 				game_ptr = &game;
 				game.gameRun();
@@ -64,6 +66,7 @@ main_menu_input_retry:
 		goto main_menu_input_retry;
 	}
 
+	/*
 	char play_again_input;
 	string clear_for_input;
 
@@ -82,6 +85,6 @@ main_menu_input_retry:
 			cout << "Goodbye! Have a nice day! :)" << endl;
 		}
 	} while (play_again_input == 'y');
-
+	*/
 		return 0;
 }

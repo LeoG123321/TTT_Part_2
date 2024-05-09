@@ -10,7 +10,9 @@ computer_player::computer_player(char letter) {
 void computer_player::move() {
 	default_random_engine engine{ static_cast<unsigned int>(time(0)) };	//Sets Seed
 
-	uniform_int_distribution<unsigned int> generate_num{ 0,board->get_size() - 1 };	//Sets ranges by the size of one size of the board
+	unsigned int max_num = board->get_size() - 1;
+
+	uniform_int_distribution<unsigned int> generate_num{ 0, max_num };	//Sets ranges by the size of one size of the board
 
 	int x_coordinate;
 	int y_coordinate;
