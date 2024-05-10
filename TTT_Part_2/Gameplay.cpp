@@ -125,6 +125,9 @@ bool Gameplay::playerWin() {
 }
 
 void Gameplay::board_clear() {
+	int board_size = board->get_size();
 	delete board;
-	board = new Board(board->get_size());
+	board = new Board(board_size);
+	(*player_1).set_board(board);
+	(*player_2).set_board(board);
 }

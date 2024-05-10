@@ -17,7 +17,8 @@ Board::Board(int size) {
 }
 
 void Board::displayBoard() {
-	
+	cout << board_size << endl;
+
 	vector<string> multi_layer;
 	string layer = "";
 	string split = "";

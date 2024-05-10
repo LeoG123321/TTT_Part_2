@@ -43,7 +43,7 @@ main_menu_input_retry:
 				game_ptr = new Gameplay(player_1_ptr, player_2_ptr, size_input);
 				game_ptr->gameRun();
 			}
-			else if (main_menu_input == 2) {
+			else {
 				human_player player_1('X');
 				player* player_1_ptr = &player_1;
 				computer_player player_2('O');
@@ -62,16 +62,14 @@ main_menu_input_retry:
 		goto main_menu_input_retry;
 	}
 
-	/*
 	char play_again_input;
 	string clear_for_input;
-
 	do {
 		cout << "Would you like to play Again? y/n" << endl;
 		cin >> play_again_input;
 		if (play_again_input == 'y') {
-			(*game_ptr).board_clear();
-			(*game_ptr).gameRun();
+			game_ptr->board_clear();
+			game_ptr->gameRun();
 		}
 		else if (play_again_input != 'n') {
 			cout << "Error: Input is not Valid." << endl << endl;
@@ -81,6 +79,6 @@ main_menu_input_retry:
 			cout << "Goodbye! Have a nice day! :)" << endl;
 		}
 	} while (play_again_input == 'y');
-	*/
+	
 		return 0;
 }
