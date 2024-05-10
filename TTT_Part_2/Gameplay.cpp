@@ -49,8 +49,10 @@ bool Gameplay::playerWin() {
 
 	vector<vector<char>> x_columns;
 	vector<vector<char>> y_rows;
+	vector<vector<char>> z_diagonal;
 	vector<char> column;
 	vector<char> row;
+	vector<char> diagonal;
 	vector<char> empty;
 
 	//Splits the board into columns and rows
@@ -64,6 +66,18 @@ bool Gameplay::playerWin() {
 		y_rows.push_back(row);
 		row = empty;
 	}
+
+	for (int i = 0; i < (*board).get_size(); i++) {
+		diagonal.push_back(board->getCell(i,i));
+	}
+	z_diagonal.push_back(diagonal);
+	diagonal = empty;
+
+	for (int i = 0; i < (*board).get_size(); i++) {
+		diagonal.push_back(board->getCell(i, board->get_size() - 1 - i));
+	}
+	z_diagonal.push_back(diagonal);
+	diagonal = empty;
 
 	//Assumes that there is n in a row/column, if there is any charcter that is different, then no one has one
 	//loop until all possible wins are checked
@@ -93,6 +107,20 @@ bool Gameplay::playerWin() {
 		}
 	}
 
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < (*board).get_size() - 1; j++) {
+			if (z_diagonal[i][j] != z_diagonal[i][j + 1] || z_diagonal[i][j] == '_' || z_diagonal[i][j + 1] == '_') {
+				equal = false;
+			}
+		}
+		if (!equal) {
+			equal = true;
+		}
+		else {
+			win = true;
+		}
+	}
+	
 	return win;
 }
 
