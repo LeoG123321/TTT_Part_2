@@ -40,11 +40,8 @@ main_menu_input_retry:
 				player* player_1_ptr = &player_1;
 				human_player player_2('O');
 				player* player_2_ptr = &player_2;
-
-				cout << "things are okay" << endl;
-				Gameplay game(player_1_ptr, player_2_ptr, size_input);
-				game_ptr = &game;
-				game.gameRun();
+				game_ptr = new Gameplay(player_1_ptr, player_2_ptr, size_input);
+				game_ptr->gameRun();
 			}
 			else if (main_menu_input == 2) {
 				human_player player_1('X');

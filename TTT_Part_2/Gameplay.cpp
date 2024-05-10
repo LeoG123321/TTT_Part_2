@@ -4,8 +4,7 @@
 using namespace std;
 
 Gameplay::Gameplay(player* player_1, player* player_2, int size) {
-	Board build_board(size);
-	(*board) = build_board;
+	board = new Board(size);
 	this->player_1 = player_1;
 	this->player_2 = player_2;
 	(*player_1).set_board(board);
@@ -95,6 +94,6 @@ bool Gameplay::playerWin() {
 }
 
 void Gameplay::board_clear() {
-	Board new_board((*board).get_size());
-	(*board) = new_board;
+	delete board;
+	board = new Board(board->get_size());
 }

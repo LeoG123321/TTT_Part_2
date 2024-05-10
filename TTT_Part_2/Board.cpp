@@ -17,6 +17,7 @@ Board::Board(int size) {
 }
 
 void Board::displayBoard() {
+	
 	vector<string> multi_layer;
 	string layer = "";
 	string split = "";
