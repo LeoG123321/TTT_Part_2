@@ -48,9 +48,8 @@ main_menu_input_retry:
 				player* player_1_ptr = &player_1;
 				computer_player player_2('O');
 				player* player_2_ptr = &player_2;
-				Gameplay game(player_1_ptr, player_2_ptr, size_input);
-				game_ptr = &game;
-				game.gameRun();
+				game_ptr = new Gameplay(player_1_ptr, player_2_ptr, size_input);
+				game_ptr->gameRun();
 			}
 		}
 		else {
