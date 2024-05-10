@@ -91,34 +91,3 @@ void Board::setCell(int x_coordinate, int y_coordinate, char character) {
 int Board::get_size() {
 	return board.size();
 }
-
-
-/*
-* 
-* Notes & Examples
-			 X
-		 0   1   2
-
-   0	 _ | _ | _
-		---+---+---
-Y  1 	 _ | _ | _ 
-		---+---+---
-   2	 _ | _ | _
-
-   3, 5
-
-			 X
-		 0   1   2   3
-
-   0	 _ | _ | _ | _
-		---+---+---+---
-Y  1 	 _ | _ | _ | _ 
-		---+---+---+---
-   2	 _ | _ | _ | _ 
-        ---+---+---+---
-   3	 _ | _ | _ | _
-
-   4, 7
-
-   5, 9
-*/
